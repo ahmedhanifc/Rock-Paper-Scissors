@@ -1,66 +1,105 @@
-const totalScore = 5;
-let currentScore = 0;
-let playerScore = 0;
-let computerScore = 0;
+// Variables
 
-// Randomly returns either Rock Paper or Scissors
+const rockButton = document.querySelector('.rock-button');
+const paperButton = document.querySelector('.paper-button');
+const scissorButton = document.querySelector('.scissors-button');
+const playerMoveText = document.querySelector('.player-move');
+const computerMoveText = document.querySelector('.computer-move');
+const winnerText = document.querySelector('.winner');
+const playerScore = document.querySelector('.player_score');
+const computerScore = document.querySelector('.computer_score');
 
-function computerPlay() {
-  const randomNumber = Math.round(Math.random() * 2);
-  const array = ['rock', 'paper', 'scissors'];
-  console.log(`Computer choose ${array[randomNumber]}`);
-  return array[randomNumber];
+let playerMove;
+let computerMove;
+let player_score = 0;
+let computer_score = 0;
+//--------------------------------------------------------------------------<>-------------------------------------------------------------------
+
+// Game Moves
+
+rockButton.addEventListener('click', (e) => {
+  textReset();
+  playerMove = 'rock';
+  computerMove = computerSelection();
+  gameLogic(playerMove, computerMove);
+  textContent();
+  isGameOver();
+});
+
+paperButton.addEventListener('click', () => {
+  textReset();
+  playerMove = 'paper';
+  computerMove = computerSelection();
+  gameLogic(playerMove, computerMove);
+  textContent();
+});
+
+scissorButton.addEventListener('click', () => {
+  textReset();
+  playerMove = 'scissor';
+  computerMove = computerSelection();
+  gameLogic(playerMove, computerMove);
+  textContent();
+});
+
+function computerSelection() {
+  const array = ['rock', 'paper', 'scissor'];
+  return array[randomNumber()];
 }
 
-function userPlay() {
-  let userInput = prompt('Rock, Paper, or Scissors?', '');
-  console.log(`Player choose ${userInput}`);
-  return userInput.toLowerCase();
-}
+// ------------------------------------------------------------------------------<>---------------------------------------------------------------
+// Game Logic
 
-// Plays a single round of the game
-
-function playRound(playerSelection, computerSelection) {
+function gameLogic(player, computer) {
   if (
-    (playerSelection === 'rock' && computerSelection === 'scissors') ||
-    (playerSelection === 'scissors' && computerSelection === 'paper') ||
-    (playerSelection === 'paper' && computerSelection === 'rock')
+    (player == 'rock' && computer == 'scissor') ||
+    (player == 'paper' && computer == 'rock') ||
+    (player == 'scissor' && computer == 'paper')
   ) {
-    console.log('You Win');
-    currentScore += 1;
-    playerScore += 1;
-    isGameOver();
+    winnerText.textContent = 'Player Wins';
+    player_score += 1;
+    console.log(1);
+    score();
   } else if (
-    (computerSelection === 'rock' && playerSelection === 'scissors') ||
-    (computerSelection === 'scissors' && playerSelection === 'paper') ||
-    (computerSelection === 'paper' && playerSelection === 'rock')
+    (player == 'scissor' && computer == 'rock') ||
+    (player == 'rock' && computer == 'paper') ||
+    (player == 'paper' && computer == 'scissor')
   ) {
-    console.log('You Lose!');
-    currentScore += 1;
-    computerScore += 1;
-    isGameOver();
+    winnerText.textContent = 'Computer Wins';
+    computer_score += 1;
+    console.log(2);
+    score();
   } else {
-    console.log('Draw');
-    currentScore += 1;
+    winnerText.textContent = 'Draw';
+    console.log(3);
   }
 }
 
 function isGameOver() {
-  if (currentScore === totalScore) {
-    console.log('Game Over');
-    if (playerScore > computerScore) {
-      console.log('Player One Wins');
-    } else {
-      console.log('Computer Wins');
-    }
+  if (player_score >= 5 || computer_score >= 5) {
   }
+}
+// ------------------------------------------------------------------------------<>---------------------------------------------------------------
+// Random Number Generator
+
+function randomNumber() {
+  let number = Math.round(Math.random() * 2);
+  return number;
 }
 
-function game() {
-  while (currentScore !== 5) {
-    const playerSelection = userPlay();
-    const computerSelection = computerPlay();
-    console.log(playRound(playerSelection, computerSelection));
-  }
+// ------------------------------------------------------------------------------<>---------------------------------------------------------------
+// HTML WORK
+
+function textContent() {
+  playerMoveText.textContent = `You Played: ${playerMove}`;
+  computerMoveText.textContent = `Computer Played: ${computerMove}`;
 }
-game();
+
+function textReset() {
+  winnerText.textContent = '';
+}
+
+function score() {
+  playerScore.textContent = `${player_score} - `;
+  computerScore.textContent = computer_score;
+}
