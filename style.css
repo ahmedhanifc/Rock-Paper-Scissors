@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@600&family=Merriweather:wght@300;400&family=Open+Sans:wght@400;500&family=Poppins:wght@300&family=Roboto+Mono&family=Square+Peg&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@600&family=Kdam+Thmor+Pro&family=Merriweather:wght@300;400&family=Open+Sans:wght@400;500&family=Poppins:wght@300&family=Roboto+Mono&family=Square+Peg&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@600&family=Kdam+Thmor+Pro&family=Merriweather:wght@300;400&family=Open+Sans:wght@400;500&family=Poppins:wght@300&family=Roboto+Mono&family=Square+Peg&display=swap');
+*{
+    box-sizing: border-box;
+
+
+}
+
+html{
+    background-color: black;
+    padding-left:30%;
+}
+body{
+    color: white;
+}
+.heading{
+    font-size: 2.8em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    padding-top: 50px;
+}
+
+.button__decor{
+    border:2px solid white;
+    max-width:26%;
+    height:100px;
+    text-align: center;
+    border-radius: 8px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    flex:1;
+    position: relative;
+    top:20px;
+    background-color: white;
+    color:black;
+    font-weight: 800;
+
+}
+.buttons{
+    display: flex;
+    gap:20px;
+    justify-content: center;
+
+}
+.button__container{
+    margin-top: 170px ;
+    padding:20px;
+    width: 450px;
+    background-color: #464646;
+    height:300px;
+    position: absolute;
+}
+
+.text{
+    padding-top:10px;
+    font-family: 'Rubik Moonrocks', cursive;
+    font-size: 1.4em;
+    font-weight: bold;
+
+}
+
+.player-title{
+    padding:20px;
+    text-align: center;
+    font-family: 'open sans', sans-serif;
+    font-size: 2em;
+    font-weight: 800;
+}
+
+.image{
+    height: auto;
+
+}
+.rock-img{
+    max-width: 150%;
+    position: relative;
+    right: 65%;
+}
+.paper-img{
+    position: relative;
+    right: 55px;
+    top:2px;
+    max-width: 140%;
+
+}
+
+.scissor-img{
+    max-width: 70%;
+}
+.button__decor:hover{
+
+    border:3px solid black;
+
+}
+
+.score__container{
+    padding-top:30px;
+    font-family: "open sans", sans-serif;
+    font-size: 1.2em;
+}
+
+.score{
+    margin-top: -30px;
+}

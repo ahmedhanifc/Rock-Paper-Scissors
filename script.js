@@ -1,8 +1,8 @@
 // Variables
 
-const rockButton = document.querySelector('.rock');
-const paperButton = document.querySelector('.paper');
-const scissorButton = document.querySelector('.scissor');
+const rockButton = document.querySelector('.rock-button');
+const paperButton = document.querySelector('.paper-button');
+const scissorButton = document.querySelector('.scissors-button');
 const playerMoveText = document.querySelector('.player-move');
 const computerMoveText = document.querySelector('.computer-move');
 const winnerText = document.querySelector('.winner');
@@ -58,6 +58,7 @@ function gameLogic(player, computer) {
   ) {
     winnerText.textContent = 'Player Wins';
     player_score += 1;
+    console.log(1);
     score();
   } else if (
     (player == 'scissor' && computer == 'rock') ||
@@ -66,17 +67,16 @@ function gameLogic(player, computer) {
   ) {
     winnerText.textContent = 'Computer Wins';
     computer_score += 1;
+    console.log(2);
     score();
   } else {
     winnerText.textContent = 'Draw';
+    console.log(3);
   }
 }
 
 function isGameOver() {
   if (player_score >= 5 || computer_score >= 5) {
-    rockButton.disabled = true;
-    paperButton.disabled = true;
-    scissorButton.disabled = true;
   }
 }
 // ------------------------------------------------------------------------------<>---------------------------------------------------------------
@@ -100,6 +100,6 @@ function textReset() {
 }
 
 function score() {
-  playerScore.textContent = player_score;
+  playerScore.textContent = `${player_score} - `;
   computerScore.textContent = computer_score;
 }

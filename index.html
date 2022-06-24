@@ -5,36 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class 'title-container'>
-        <div class="title">Make Your Move</div>
-    </div>
+<div class="heading__container">
+    <div class="heading">Rock, Paper, Scissors?</div>
+</div>
+
+<div class="button__container">
+    <div class="player-title">Choose</div>
     <div class="buttons">
-        <div class="rock-button">
-            <button class="rock">Rock</button>
+        <div class="rock-button button__decor">
+
+            <div class="rock text" >Rock</div>
+            <img class = "image rock-img" src="rock.png">
         </div>
-        <div class="paper-button">
-            <button class="paper">Paper</button>
+        <div class="paper-button button__decor">
+            <div class="paper text">Paper</div>
+            <img class = "image paper-img" src="paper.png" alt="">
         </div>
-        <div class="scissors-button">
-            <button class="scissor">Scissors</button>
+        <div class="scissors-button button__decor">
+            <div class="scissor text">Scissors</div>
+            <img src="scissor.png" alt="" class="image scissor-img">
         </div>
     </div>
 
-    <div class="player-move__container">
-        <div class="player-move"><span class="move"></span></div>
-        <div class="computer-move"></div>
-    </div>
-    <div class="winner__container">
-        <div class="winner"></div>
-    </div>
 
+
+</div>
     <div class="score__container">
-        <div class="score"><span class="player_score"></span> - <span class="computer_score"></span></div>
+        <div class="player-move__container">
+            <div class="player-move"><span class="move"></span></div>
+            <div class="computer-move"></div>
+        </div>
+        <div class="winner__container">
+            <div class="winner"></div>
+        </div>
+    
+        <div class="score__container">
+            <div class="score"><span class="player_score"></span><span class="computer_score"></span></div>
+        </div>
+    
+
     </div>
 
+ 
 
     <script src="script.js"></script>
 </body>
